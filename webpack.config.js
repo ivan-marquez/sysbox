@@ -7,7 +7,7 @@ module.exports = {
   // the entry point is the top of the tree of modules.
   // webpack will bundle this file and everything it references.
   entry: "./app/index.js",
-  // we specify we want to put the bundled result in the matching out/ folder
+  target: "electron-renderer",
   output: {
     filename: "bundle.js",
     path: path.resolve(__dirname, "dist"),
