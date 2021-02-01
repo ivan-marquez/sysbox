@@ -1,12 +1,10 @@
 const { app, BrowserWindow, Tray, Menu } = require("electron");
 const { join } = require("path");
-// const si = require("systeminformation");
+const si = require("systeminformation");
 
 // si.cpu()
 //   .then((data) => console.log(data))
 //   .catch((error) => console.error(error));
-
-// console.log(si.time());
 
 var mainWindow;
 var tray;
@@ -28,7 +26,7 @@ function createWindow() {
   tray = new Tray(join(__dirname, "assets", "icons", "node.png"));
   const contextMenu = Menu.buildFromTemplate([
     {
-      label: "SysInfo Widget",
+      label: "SysInfoStats",
       enabled: false,
     },
     {
@@ -55,6 +53,12 @@ function createWindow() {
   tray.setContextMenu(contextMenu);
 
   mainWindow.loadURL(`file://${__dirname}/index.html`);
+
+  // Events
+  mainWindow.webContents.on("did-finish-load", () => {
+    mainWindow.webContents.send("tick", si.time());
+    setInterval(() => mainWindow.webContents.send("tick", si.time()), 5000);
+  });
 
   mainWindow.on("closed", function () {
     mainWindow = null;
