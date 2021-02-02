@@ -1,16 +1,19 @@
 {
   "name": "sysinfostats",
   "version": "0.1.0",
-  "description": "",
-  "main": "index.js",
+  "description": "System information stats in a desktop widget!",
+  "main": "main.js",
   "scripts": {
-    "start": "electron ./main.js",
-    "build": "webpack"
+    "start": "electron-forge start",
+    "build": "webpack",
+    "package": "electron-forge package",
+    "make": "electron-forge make"
   },
   "keywords": [],
-  "author": "",
+  "author": "Ivan Marquez",
   "license": "ISC",
   "dependencies": {
+    "electron-squirrel-startup": "^1.0.0",
     "preact": "^10.5.10",
     "systeminformation": "^4.34.7",
     "typeface-orbitron": "^1.1.13"
@@ -20,6 +23,11 @@
     "@babel/plugin-transform-react-jsx": "^7.12.12",
     "@babel/preset-react": "^7.12.10",
     "@babel/preset-stage-2": "^7.8.3",
+    "@electron-forge/cli": "^6.0.0-beta.54",
+    "@electron-forge/maker-deb": "^6.0.0-beta.54",
+    "@electron-forge/maker-rpm": "^6.0.0-beta.54",
+    "@electron-forge/maker-squirrel": "^6.0.0-beta.54",
+    "@electron-forge/maker-zip": "^6.0.0-beta.54",
     "babel-loader": "^8.2.2",
     "css-loader": "^5.0.1",
     "electron": "^11.2.0",
@@ -28,5 +36,32 @@
     "webpack": "^5.16.0",
     "webpack-cli": "^4.4.0",
     "webpack-dev-server": "^3.11.2"
+  },
+  "config": {
+    "forge": {
+      "packagerConfig": {},
+      "makers": [
+        {
+          "name": "@electron-forge/maker-squirrel",
+          "config": {
+            "name": "sysinfostats"
+          }
+        },
+        {
+          "name": "@electron-forge/maker-zip",
+          "platforms": [
+            "darwin"
+          ]
+        },
+        {
+          "name": "@electron-forge/maker-deb",
+          "config": {}
+        },
+        {
+          "name": "@electron-forge/maker-rpm",
+          "config": {}
+        }
+      ]
+    }
   }
 }
