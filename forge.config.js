@@ -3,9 +3,17 @@ module.exports = {
     {
       name: "@electron-forge/maker-zip",
       platforms: ["windows"],
-      config: {
-        // Config here
-      },
+      config: {},
     },
   ],
+  publishers: {
+    name: "@electron-forge/publisher-github",
+    config: {
+      repository: {
+        owner: "ivan-marquez",
+        name: "sysinfostats",
+      },
+      prerelease: true,
+    },
+  },
 };
