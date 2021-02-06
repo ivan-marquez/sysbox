@@ -1,7 +1,7 @@
 {
-  "name": "sysinfostats",
+  "name": "sysbox",
   "version": "0.1.0",
-  "description": "System information stats in a desktop widget!",
+  "description": "System information stats on a desktop widget.",
   "main": "main.js",
   "scripts": {
     "start": "electron-forge start",
