@@ -7,7 +7,8 @@
     "start": "electron-forge start",
     "build": "webpack",
     "package": "electron-forge package",
-    "make": "electron-forge make"
+    "make": "electron-forge make",
+    "publish": "electron-forge publish"
   },
   "keywords": [],
   "author": "Ivan Marquez",
@@ -28,6 +29,7 @@
     "@electron-forge/maker-rpm": "^6.0.0-beta.54",
     "@electron-forge/maker-squirrel": "^6.0.0-beta.54",
     "@electron-forge/maker-zip": "^6.0.0-beta.54",
+    "@electron-forge/publisher-github": "^6.0.0-beta.54",
     "babel-loader": "^8.2.2",
     "css-loader": "^5.0.1",
     "electron": "^11.2.0",
