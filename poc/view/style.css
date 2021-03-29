@@ -1,0 +1,33 @@
+body {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
+}
+
+.container {
+  font-family: "Orbitron", sans-serif;
+  width: 50%;
+}
+
+.clock {
+  display: flex;
+  align-items: center;
+}
+
+.time {
+  font-size: 200px;
+  color: rgba(29, 29, 29, 0.849);
+}
+
+.meridiem {
+  font-size: 60px;
+  color: rgba(29, 29, 29, 0.849);
+}
+
+.metrics-container {
+ display: flex;
+ justify-content: space-between;
+}
