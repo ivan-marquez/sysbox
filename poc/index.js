@@ -32,7 +32,9 @@ console.log(formatAMPM(d));
 // #endregion
 
 // #region Docker info
-si.dockerAll((data) => console.log(data));
+si.dockerAll((data) => console.log(data)); // Docker
+si.currentLoad((data) => console.log(data)); // CPU
+si.mem(data => console.log(data)); // RAM
 // #endregion
 
 // #region Internet speed
@@ -74,9 +76,15 @@ getNetworkUploadSpeed();
 const counters = [
   "\\processor(_total)\\% processor time",
   "\\memory\\Available MBytes",
+  "\\memory\\Committed Bytes",
+  "memory\\% Committed Bytes In Use",
 ];
 
-perfmon(counters, function (_err, data) {
-  console.log(data);
-});
+// perfmon.list("memory", function (err, data) {
+//   console.log(data);
+// });
+
+// perfmon(counters, function (_err, data) {
+//   console.log(data);
+// });
 // #endregion
